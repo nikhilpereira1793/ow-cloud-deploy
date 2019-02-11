@@ -83,25 +83,39 @@ for more details.
 
 ### Jenkins Setup
 1. Add the private key credentials to the [Jenkins global credentials]
+
 2. Install ssh-agent plugin
+
 3. Install pipeline plugins
+
 4. Create a pipeline job 
+
 5. Add this [ow-cloud-deploy] repo to the Pipeline SCM script with the Script path `Jenkinsfile`
+
 6. Build the job to import Jenkinsfile and populate the input parameters
 
 ### How to Run
 ##### Deploy OpenWhisk on either Single Node EC2 instance or AWS EKS cluster: 
+
 1. From the Job choose build with parameter 
+
 2. Select `deployow` from the action drop-down
+
 3. Choose the `deploymentType` 
+
 4. Navigate to console output and when prompted select the required region/instance type
+
 5. Once the job is complete ,copy the APIHOST from the Jenkins console and use it to connect to the Open Cluster
 
 
 ##### Terminate OpenWhisk and Tear Down AWS resources: 
+
 1. From the Job choose build with parameter 
+
 2. Select `teardown` from the action drop-down
+
 3. Choose the `deploymentType` 
+
 4. Note that this job will tear down the EC2 machine/machines or clusters where OpenWhisk was deployed
 
 
