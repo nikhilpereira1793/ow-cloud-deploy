@@ -120,6 +120,7 @@ for more details.
 
 
 ## Demo
+***Click on the gif to see the demo:***
 
 [![Demo OpenWhikSingleNode](https://github.com/rahulqelfo/ow-cloud-deploy/blob/demo-video/demo.gif)](https://spark.adobe.com/video/nJ6MFOd6agmyc)
 
