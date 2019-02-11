@@ -310,6 +310,18 @@ pipeline {
             catch (Exception ex) {
             println("Kubeconfig not installed correctly")
 } }
+
+				
+					 //Step 9 Deleting the EC2 instance added to create EKS cluster for OW
+            script {
+            echo 'Deleting the EC2 instance added to create EKS cluster for OW'
+            try { 
+ 				sh (returnStdout: true, script:'sudo ./gradlew TearDownInstance -PACCESS_KEY_ID=$aws_access_key -PSECRET_ACCESS_KEY=$aws_access_secret -PREGION=$region -PINSTANCE_TYPE=$instancetype -PINSTANCE_ID=$instanceID -PKEY_NAME= -PROLE_ARN= --no-daemon').trim()
+         		echo 'Instance terminated successfully. OW EKS Setup complete' 
+            }
+            catch (Exception ex) {
+            println("Unable to delete the instance. Check EC2 console.")
+} }
      } }
           
       // Tear down OW Cluster on Single node
