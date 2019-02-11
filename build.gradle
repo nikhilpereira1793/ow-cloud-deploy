@@ -1,0 +1,51 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+task(CreateInstance, dependsOn: 'classes', type: JavaExec) {
+   main = 'com.aws.EC2.CreateInstance'
+   classpath = sourceSets.main.runtimeClasspath
+   args project.getProperty('ACCESS_KEY_ID'); 
+   args project.getProperty('SECRET_ACCESS_KEY');
+   args project.getProperty('REGION'); 
+   args project.getProperty('INSTANCE_TYPE');
+}
+task(InstanceDetails, dependsOn: 'classes', type: JavaExec) {
+   main = 'com.aws.EC2.GetInstanceDetails'
+   classpath = sourceSets.main.runtimeClasspath
+   args project.getProperty('ACCESS_KEY_ID'); 
+   args project.getProperty('SECRET_ACCESS_KEY');
+}
+task(TearDownInstance, dependsOn: 'classes', type: JavaExec) {
+   main = 'com.aws.EC2.TearDownInstance'
+   classpath = sourceSets.main.runtimeClasspath
+   args project.getProperty('ACCESS_KEY_ID'); 
+   args project.getProperty('SECRET_ACCESS_KEY');
+   args project.getProperty('INSTANCE_ID');
+}
+task(CreateEksCluster, dependsOn: 'classes', type: JavaExec) {
+   main = 'com.aws.EKS.CreateEksCluster'
+   classpath = sourceSets.main.runtimeClasspath
+   args project.getProperty('ACCESS_KEY_ID'); 
+   args project.getProperty('SECRET_ACCESS_KEY');
+   args project.getProperty('KEY_NAME');
+   args project.getProperty('ROLE_ARN');
+   args project.getProperty('INSTANCE_TYPE');
+}
+task(DeleteEksCluster, dependsOn: 'classes', type: JavaExec) {
+   main = 'com.aws.EKS.DeleteEksCluster'
+   classpath = sourceSets.main.runtimeClasspath
+   args project.getProperty('ACCESS_KEY_ID'); 
+   args project.getProperty('SECRET_ACCESS_KEY');
+}
+tasks.withType(JavaExec) {
+    if (System.getProperty('DEBUG', 'false') == 'true') {
+        jvmArgs '-Xdebug', '-Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=9099'
+    }
+}
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'com.amazonaws:aws-java-sdk:1.11.465'
+}
