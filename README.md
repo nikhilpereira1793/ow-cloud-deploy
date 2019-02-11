@@ -107,8 +107,7 @@ for more details.
 
 ## Demo
 
-[![Demo OpenWhikSingleNode](https://imgflip.com/gif/2te24i)](https://spark.adobe.com/video/nJ6MFOd6agmyc)
-[![Demo Doccou alpha](http://share.gifyoutube.com/KzB6Gb.gif)](https://www.youtube.com/watch?v=ek1j272iAmc)
+[![Demo OpenWhikSingleNode](https://i.imgflip.com/2te24i.gif)](https://spark.adobe.com/video/nJ6MFOd6agmyc)
 
  [OPENWHISK DEVTOOLS]: https://github.com/apache/incubator-openwhisk-devtools
  [AWS JAVA SDK]: https://aws.amazon.com/sdk-for-java/ 
