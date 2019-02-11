@@ -310,9 +310,7 @@ pipeline {
             catch (Exception ex) {
             println("Kubeconfig not installed correctly")
 } }
-
-				
-					 //Step 9 Deleting the EC2 instance added to create EKS cluster for OW
+				 //Step 9 Deleting the EC2 instance added to create EKS cluster for OW
             script {
             echo 'Deleting the EC2 instance added to create EKS cluster for OW'
             try { 

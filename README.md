@@ -105,6 +105,10 @@ for more details.
 4. Note that this job will tear down the EC2 machine/machines or clusters where OpenWhisk was deployed
 
 
+## Demo
+
+[![Demo OpenWhikSingleNode](https://imgflip.com/gif/2te24i)](https://spark.adobe.com/video/nJ6MFOd6agmyc)
+
  [OPENWHISK DEVTOOLS]: https://github.com/apache/incubator-openwhisk-devtools
  [AWS JAVA SDK]: https://aws.amazon.com/sdk-for-java/ 
  [AWS EKS]: https://aws.amazon.com/eks/
