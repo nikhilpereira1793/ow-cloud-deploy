@@ -299,7 +299,7 @@ pipeline {
                 sudo helm install ./helm/openwhisk --namespace=openwhisk --name=owdev -f \\$HOME/ow-deploy/mycluster.yaml;
                 "'''
                }
-            sleep 120 // seconds
+            sleep 300 // seconds
             sshagent (credentials: ["$awsKeyName"]) {
              env.apiHost = sh (returnStdout: true,script :'''ssh -o  StrictHostKeyChecking=no ubuntu@$host "aws elb describe-load-balancers --query \'LoadBalancerDescriptions[?VPCId==\\`$vpcId\\`]|[].CanonicalHostedZoneName\'
                 "''').trim(); 
