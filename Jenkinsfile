@@ -283,7 +283,7 @@ pipeline {
                  sleep 120 // seconds
             }
             catch (Exception ex) {
-            println("Kubeconfig not installed correctly")
+            println("Kubeconfig not configured correctly")
 } }
               
             //Step 8 Deploying OpenWhisk using Helm
@@ -300,17 +300,25 @@ pipeline {
                 "'''
                }
             sleep 300 // seconds
-            sshagent (credentials: ["$awsKeyName"]) {
+            }
+            catch (Exception ex) {
+            println("OpenWhisk not installed correctly on EKS")
+} }
+           //Step 9 Getting ELB IP for OPENWHISK APIHOST
+            script {
+            echo 'Getting ELB IP for OPENWHISK APIHOST'
+            try {
+               sshagent (credentials: ["$awsKeyName"]) {
              env.apiHost = sh (returnStdout: true,script :'''ssh -o  StrictHostKeyChecking=no ubuntu@$host "aws elb describe-load-balancers --query \'LoadBalancerDescriptions[?VPCId==\\`$vpcId\\`]|[].CanonicalHostedZoneName\'
                 "''').trim(); 
                 }
                 echo "Use this API host in your CLI or Rest APIs: \n\n==========================\n\n${apiHost}\n\n=========================="
-                 sleep 120 // seconds
+                sleep 300 // seconds
             }
             catch (Exception ex) {
-            println("Kubeconfig not installed correctly")
+            println("Unable to fetch API HOST. Check EC2 console")
 } }
-				 //Step 9 Deleting the EC2 instance added to create EKS cluster for OW
+				 //Step 10 Deleting the EC2 instance added to create EKS cluster for OW
             script {
             echo 'Deleting the EC2 instance added to create EKS cluster for OW'
             try { 
