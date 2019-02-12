@@ -313,10 +313,11 @@ pipeline {
                 "''').trim(); 
                 }
                 echo "Use this API host in your CLI or Rest APIs: \n\n==========================\n\n${apiHost}\n\n=========================="
-                sleep 300 // seconds
+                sleep 180 // seconds
             }
             catch (Exception ex) {
             println("Unable to fetch API HOST. Check EC2 console")
+            sleep 240 // seconds
 } }
 				 //Step 10 Deleting the EC2 instance added to create EKS cluster for OW
             script {
