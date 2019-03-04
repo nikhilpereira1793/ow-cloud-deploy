@@ -119,9 +119,13 @@ for more details.
 4. Note that this job will tear down the EC2 machine/machines or clusters where OpenWhisk was deployed
 
 
+
 ### Deploy OpenWhisk on a Single Node EC2 instance using CloudFormation Template
 
 [![Launch Template](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=myOpenWhiskStack&templateURL=https://s3.amazonaws.com/kerberos-cf-templates/aws-deploy-singlenode.yml)
+
+
+
 
 
 ## Demo
