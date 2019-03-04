@@ -33,10 +33,10 @@ It utilizes the capabilities of Jenkinsfile to automate the OpenWhisk deployment
 
 
 
-### Build Parameters 
+### Build Parameters
 
  **ActionType:**
-	
+
 **deployow**  : Choose this option if you want to deploy Openwhisk on any cloud based provider.
 This parameter would create an EC2 machine and deploys the necessary softwares/tools needed to run OW.Once the tools are install it would deploy OpenWhisk on the EC2 machine.This task does the following:
 1. Creates EC2 resources
@@ -88,35 +88,40 @@ for more details.
 
 3. Install pipeline plugins
 
-4. Create a pipeline job 
+4. Create a pipeline job
 
 5. Add this [ow-cloud-deploy] repo to the Pipeline SCM script with the Script path `Jenkinsfile`
 
 6. Build the job to import Jenkinsfile and populate the input parameters
 
 ### How to Run
-##### Deploy OpenWhisk on either Single Node EC2 instance or AWS EKS cluster: 
+##### Deploy OpenWhisk on either Single Node EC2 instance or AWS EKS cluster:
 
-1. From the Job choose build with parameter 
+1. From the Job choose build with parameter
 
 2. Select `deployow` from the action drop-down
 
-3. Choose the `deploymentType` 
+3. Choose the `deploymentType`
 
 4. Navigate to console output and when prompted select the required region/instance type
 
 5. Once the job is complete ,copy the APIHOST from the Jenkins console and use it to connect to the Open Cluster
 
 
-##### Terminate OpenWhisk and Tear Down AWS resources: 
+##### Terminate OpenWhisk and Tear Down AWS resources:
 
-1. From the Job choose build with parameter 
+1. From the Job choose build with parameter
 
 2. Select `teardown` from the action drop-down
 
-3. Choose the `deploymentType` 
+3. Choose the `deploymentType`
 
 4. Note that this job will tear down the EC2 machine/machines or clusters where OpenWhisk was deployed
+
+
+### Deploy OpenWhisk on a Single Node EC2 instance using CloudFormation Template
+
+[![Launch Template](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=myOpenWhiskStack&templateURL=https://s3.amazonaws.com/kerberos-cf-templates/aws-deploy-singlenode.yml)
 
 
 ## Demo
@@ -125,7 +130,7 @@ for more details.
 [![Demo OpenWhikSingleNode](https://github.com/rahulqelfo/ow-cloud-deploy/blob/master/demo.gif)](https://spark.adobe.com/video/nJ6MFOd6agmyc)
 
  [OPENWHISK DEVTOOLS]: https://github.com/apache/incubator-openwhisk-devtools
- [AWS JAVA SDK]: https://aws.amazon.com/sdk-for-java/ 
+ [AWS JAVA SDK]: https://aws.amazon.com/sdk-for-java/
  [AWS EKS]: https://aws.amazon.com/eks/
  [Azure AKS]: https://azure.microsoft.com/en-ca/services/kubernetes-service/
  [OPENWHISK KUBE DEPLOY]: https://github.com/apache/incubator-openwhisk-deploy-kube
