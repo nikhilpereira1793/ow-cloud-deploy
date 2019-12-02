@@ -73,12 +73,12 @@ pipeline {
          		// Run the gradle build
          		 script {  
          		if (env.deploymentType == 'awsEKS'){                
-                 instance_details = sh (returnStdout: true, script:'sudo ./gradlew CreateInstance -PACCESS_KEY_ID=$aws_access_key -PSECRET_ACCESS_KEY=$aws_access_secret -PREGION=$region -PINSTANCE_TYPE=t2.micro -PINSTANCE_ID= -PKEY_NAME= -PROLE_ARN= --no-daemon|grep -E -o ".*i-.*|([0-9]{1,3}[\\.]){3}[0-9]{1,3}"').split()
+                 instance_details = sh (returnStdout: true, script:' ./gradlew CreateInstance -PACCESS_KEY_ID=$aws_access_key -PSECRET_ACCESS_KEY=$aws_access_secret -PREGION=$region -PINSTANCE_TYPE=t2.micro -PINSTANCE_ID= -PKEY_NAME= -PROLE_ARN= --no-daemon|grep -E -o ".*i-.*|([0-9]{1,3}[\\.]){3}[0-9]{1,3}"').split()
          		 env.host = instance_details[0];	
          		 env.instanceID = instance_details[-1]	
          		}
          		else {              
-                 public_ip = sh (returnStdout: true, script:'sudo ./gradlew CreateInstance -PACCESS_KEY_ID=$aws_access_key -PSECRET_ACCESS_KEY=$aws_access_secret -PREGION=$region -PINSTANCE_TYPE=$instancetype -PINSTANCE_ID= -PKEY_NAME= -PROLE_ARN= --no-daemon|grep -E -o ".*i-.*|([0-9]{1,3}[\\.]){3}[0-9]{1,3}"').split()
+                 public_ip = sh (returnStdout: true, script:' ./gradlew CreateInstance -PACCESS_KEY_ID=$aws_access_key -PSECRET_ACCESS_KEY=$aws_access_secret -PREGION=$region -PINSTANCE_TYPE=$instancetype -PINSTANCE_ID= -PKEY_NAME= -PROLE_ARN= --no-daemon|grep -E -o ".*i-.*|([0-9]{1,3}[\\.]){3}[0-9]{1,3}"').split()
          		 env.host = public_ip[0];	
          		 env.instanceID = public_ip[-1];	               
          		}
