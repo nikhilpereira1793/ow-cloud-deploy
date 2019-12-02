@@ -138,7 +138,7 @@ public class CreateInstance
         	    .withCredentials(new AWSStaticCredentialsProvider(awsCreds))
         	    .build();
         // Getting EC2 public IP
-        Thread.sleep(2000);
+        Thread.sleep(120000);
         String publicIP = ec2.describeInstances(new DescribeInstancesRequest()
                                 .withInstanceIds(instanceId))
                                 .getReservations()
