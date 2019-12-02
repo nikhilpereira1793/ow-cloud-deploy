@@ -57,7 +57,7 @@ public class CreateInstance
 		String security_group_id = "OpenWhiskJenkinsSecurityGroup" + rand.nextInt(50); 
 	   
         String name = "Testing";
-	    String ami_id = "ami-0ac019f4fcb7cb7e6";
+	    String ami_id = "ami-04b9e92b5572fa0d1";
 	        
 	    //BasicAWSCredentials awsCreds = new BasicAWSCredentials("AKIAJE7BTQAXOCLLOQDQ", "a6qJcyG3VHGjPoozyPLuzqdbuzZiKyrLwcNgOCbx");
 	    BasicAWSCredentials awsCreds = new BasicAWSCredentials(ACCESS_KEY_ID, SECRET_ACCESS_KEY) ;
